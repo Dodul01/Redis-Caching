@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start:prod",
     "start:prod": "node ./dist/server.js",
     "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc"
@@ -17,7 +18,8 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "ioredis": "^5.7.0"
+    "ioredis": "^5.7.0",
+    "redis": "^5.8.2"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.9",

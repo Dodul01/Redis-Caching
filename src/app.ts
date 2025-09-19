@@ -1,6 +1,7 @@
-import express, { Application } from 'express';
+import express, { Application, Request, Response } from 'express';
 import cookiePerser from 'cookie-parser';
 import cors from 'cors';
+import client from './redis/redis';
 
 const app: Application = express();
 
@@ -21,5 +22,19 @@ app.get('/', (req, res) => {
         health: 'OK'
     })
 });
+
+
+app.post('/create-user', (req: Request, res: Response) => {
+    const { name } = req.body;
+    client.set("user:1", name);
+
+    res.send({
+        status: true,
+        message: "User created successfully...",
+        health: 'OK',
+        data: name
+    })
+});
+
 
 export default app;

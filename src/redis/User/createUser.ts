@@ -1,7 +1,7 @@
 import client from "../redis"
 
-const createUser = async () => {
-    const user = await client.set("user:4", "Mozammel Hoque Dodul");
+const createUser = async (no: number, name: string) => {
+    const user = await client.set(`user:${no}`, name);
     console.log("user created", user);
 }
 
